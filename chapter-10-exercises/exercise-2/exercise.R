@@ -20,7 +20,10 @@ salary_adjustments <- c(runif(100, -5000, 10000))
 # Create a data frame `salaries` by combining the 3 vectors you just made
 # Remember to set `stringsAsFactors=FALSE`!
 
-salaries <- data.frame(employees, salaries_2017, salary_adjustments, stringsAsFactors = FALSE)
+salaries <- data.frame(employees, 
+                       salaries_2017, 
+                       salary_adjustments, 
+                       stringsAsFactors = FALSE)
 
 # Add a column to the `salaries` data frame that represents each person's
 # salary in 2018 (e.g., with the salary adjustment added in).
@@ -38,7 +41,8 @@ salaries$got_a_raise <- salaries$salaries_2018 > salaries$salaries_2017
 
 # What was the 2018 salary of Employee 57
 
-employee_57_salary <- salaries[salaries$employees == "Employee 57", "salaries_2018"]
+employee_57_salary <- salaries[salaries$employees == "Employee 57",
+                               "salaries_2018"]
 
 # How many employees got a raise?
 
@@ -50,7 +54,8 @@ highest_raise <- max(salaries$salary_adjustments)
 
 # What was the "name" of the employee who received the highest raise?
 
-got_highest_raise <- salaries[salaries$salary_adjustments == highest_raise, "employees"]
+got_highest_raise <- salaries[salaries$salary_adjustments == highest_raise,
+                              "employees"]
 
 # What was the largest decrease in salaries between the two years?
 
@@ -58,7 +63,8 @@ lowest_raise <- min(salaries$salary_adjustments)
 
 # What was the name of the employee who recieved largest decrease in salary?
 
-got_lowest_raise <- salaries[salaries$salary_adjustments == lowest_raise, "employees"]
+got_lowest_raise <- salaries[salaries$salary_adjustments == lowest_raise,
+                             "employees"]
 
 # What was the average salary change?
 
@@ -66,7 +72,8 @@ average_increase <- mean(salaries$salary_adjustments)
 
 # For people who did not get a raise, how much money did they lose on average?
 
-average_loss <- mean(salaries$salary_adjustments[salaries$got_a_raise == FALSE])
+average_loss <- mean(salaries$salary_adjustments
+                     [salaries$got_a_raise == FALSE])
 
 ## Consider: do the above averages match what you expected them to be based on 
 ## how you generated the salaries?
